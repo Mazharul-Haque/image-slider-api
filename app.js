@@ -39,7 +39,7 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.add('added');
- 
+
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
@@ -51,7 +51,7 @@ var timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 3) {
-    alert('Select at least 2 image.')
+    alert('Select at least 3 image.')
     return;
   }
   // crate slider previous next area
@@ -108,6 +108,17 @@ const changeSlide = (index) => {
 
   items[index].style.display = "block"
 }
+
+//Enter Trigger
+document.getElementById("search")
+  .addEventListener("keypress", function (event) {
+    //event.preventDefault();
+    if (event.key == 'Enter') {
+      document.getElementById("search-btn").click();
+    }
+
+  });
+//End Enter Trigger
 
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
